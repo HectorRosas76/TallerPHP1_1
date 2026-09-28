@@ -97,6 +97,28 @@ form {
     text-align: center;
 }
 
+/* SELECT */
+.menu select{
+        width: 100%;
+
+    padding: 15px;
+
+    box-sizing: border-box;
+
+    background-color: rgb(190, 135, 65);
+
+    border: 2px solid darkred;
+
+    border-radius: 10px;
+
+    color: darkred;
+
+    font-size: 18px;
+
+    text-align: center;
+}
+
+
 /* COLOR DEL PLACEHOLDER */
 .menu input::placeholder {
     color: rgb(80, 2, 2);
@@ -175,10 +197,13 @@ form {
 ========================= */
 
 .menu a:hover,
-.menu button:hover {
+.menu button:hover{
     background-color: darkred;
 
     color: white;
 
     transform: scale(1.02);
 }
+
+
+
