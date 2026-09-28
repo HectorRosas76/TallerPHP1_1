@@ -1,11 +1,26 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fibonacci</title>
+    <link rel="stylesheet" href="../CSS/General.css">
 </head>
 <body>
+    <main class="contenedor">
+        <nav class="menu">
+    <h1>Fibonnaci</h1>
     
+    <form action="../PHP/Fibonacci.php" method="post">
+        <input
+        type="number"
+        name="num"
+        placeholder="Ingrese un numero para comenzar la serie Fibbonaci"
+        />
+        <button type="submit">CALCULAR</button>
+    </form>
+    <a href="index.html">VOLVER</a>
+    </nav>
+</main>
 </body>
 </html>
