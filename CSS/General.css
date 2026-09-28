@@ -39,6 +39,11 @@ h1 {
     margin-bottom: 40px;
 }
 
+h2{
+    text-align: left;
+    color: rgb(80, 2, 2);
+    margin-bottom: 20px;
+}
 
 /* =========================
    MENU
@@ -72,7 +77,6 @@ form {
 /* =========================
    INPUT
 ========================= */
-
 .menu input {
     width: 100%;
 
@@ -93,6 +97,11 @@ form {
     text-align: center;
 }
 
+/* COLOR DEL PLACEHOLDER */
+.menu input::placeholder {
+    color: rgb(80, 2, 2);
+    opacity: 1;
+}
 
 /* =========================
    BOTÓN
