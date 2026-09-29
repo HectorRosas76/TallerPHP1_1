@@ -56,23 +56,24 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Serie Fibonacci</title>
+    <title>Serie Fibonacci / Factorial</title>
     <link rel="stylesheet" href="../CSS/General.css">
-<link rel="icon" href="../Recursos/logo.png" type="image/x-icon">
+    <link rel="icon" href="../Recursos/logo.png" type="image/x-icon">
 </head>
 
 <body>
- <main class="contenedor">
+    <main class="contenedor">
         <nav class="menu">
-    <h1>Fibonnaci / Factorial </h1>
-    <?php
-    if ($resultado != "") {
-        echo "<h2>Resultado:</h2>";
-        echo $resultado;
-    }
-    ?>
-    <a href="../HTML/Fibonacci.html">VOLVER</a>
-</nav>
-</main>
+            <h1>Fibonnaci / Factorial </h1>
+            <?php
+            if ($resultado != "") {
+                echo "<h2>Resultado:</h2>";
+                echo $resultado;
+            }
+            ?>
+            <a href="../HTML/Fibonacci.html">VOLVER</a>
+        </nav>
+    </main>
 </body>
+
 </html>

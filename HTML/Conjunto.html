@@ -1,12 +1,40 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Conjunto</title>
-    <link rel="icon" href="../Recursos/logo.png" type="image/x-icon">
-</head>
-<body>
-    
-</body>
+    <link rel="icon" href="../Recursos/logo.png" type="image/x-icon" />
+    <link rel="stylesheet" href="../CSS/General.css" />
+  </head>
+  <body>
+    <main class="contenedor">
+      <nav class="menu">
+        <h1>Conjuntos</h1>
+
+        <form action="../PHP/Conjunto.php" method="post">
+          Conjunto A:
+          <input
+            type="text"
+            name="numAA"
+            placeholder="Ingrese un conjunto de numeros: 1,2,3,4"
+            min="1"
+            required
+          />
+          <br>
+          Conjunto B:
+          <input
+            type="text"
+            name="numBB"
+            placeholder="Ingrese un conjunto de numeros: 3,4,5,6 "
+            min="1"
+            required
+          />
+          <br>
+          <button type="submit">GENERAR</button>
+        </form>
+        <a href="index.html">VOLVER</a>
+      </nav>
+    </main>
+  </body>
 </html>
