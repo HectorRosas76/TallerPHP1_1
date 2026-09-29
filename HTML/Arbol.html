@@ -4,9 +4,46 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Arbol</title>
-    <link rel="icon" href="../Recursos/logo.png" type="image/x-icon">
+        <link rel="icon" href="../Recursos/logo.png" type="image/x-icon" />
+        <link rel="stylesheet" href="../CSS/General.css">
 </head>
 <body>
-    
+       <main class="contenedor">
+      <nav class="menu">
+        <h1>Conjuntos</h1>
+
+        <form action="../PHP/Arbol.php" method="post">
+          Inorden:
+          <input
+            type="text"
+            name="in"
+            placeholder="D,B,E,A,C"
+  
+            required
+          />
+          <br>
+          Preorden:
+          <input
+            type="text"
+            name="pre"
+            placeholder="A,B,D,E,C"
+   
+            required
+          />
+          <br>
+            Postorden:
+          <input
+            type="text"
+            name="post"
+            placeholder="D,E,B,C,A"
+  
+            required
+          />
+          <br>
+          <button type="submit">GENERAR</button>
+        </form>
+        <a href="index.html">VOLVER</a>
+      </nav>
+    </main>
 </body>
 </html>

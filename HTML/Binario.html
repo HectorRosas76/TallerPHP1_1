@@ -1,12 +1,29 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Binario</title>
-    <link rel="icon" href="../Recursos/logo.png" type="image/x-icon">
-</head>
-<body>
-    
-</body>
+    <link rel="icon" href="../Recursos/logo.png" type="image/x-icon" />
+    <link rel="stylesheet" href="../CSS/General.css" />
+  </head>
+
+  <body>
+    <main class="contenedor">
+      <nav class="menu">
+        <h1>Enteros a Binario</h1>
+        <form action="../PHP/Binario.php" method="post">
+          <input
+            type="number"
+            name="num1"
+            placeholder="Ingrese un numero entero"
+            min="0"
+            required
+          />
+          <button type="submit">CONVERTIR</button>
+        </form>
+        <a href="index.html">VOLVER</a>
+      </nav>
+    </main>
+  </body>
 </html>
