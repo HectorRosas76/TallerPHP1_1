@@ -1,13 +1,20 @@
 <?php
 
-class Operacion
+abstract class Operacion
 {
-    private int $numero;
+    abstract public function convertir(): array;
+    protected int $numero;
     public function __construct(int $numero)
     {
         $this->numero = $numero;
     }
-    public function fibonacci(): array
+ 
+
+}
+
+class Fibonacci extends Operacion
+{
+       public function convertir(): array
     {
         $serie = [];
         if ($this->numero >= 1) {
@@ -22,7 +29,11 @@ class Operacion
         }
         return $serie;
     }
-    public function factorial(): array
+}
+
+class Factorial extends Operacion
+{
+        public function convertir(): array
     {
         $serie = [];
         $resultado = 1;
@@ -37,14 +48,20 @@ class Operacion
 $resultado = "";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
+
     $n = intval($_POST["num"]);
     $operacion = $_POST["operacion"];
-    $operacionNumero = new Operacion($n);
+
     if ($operacion == "fibonacci") {
-        $serie = $operacionNumero->fibonacci();
+
+        $fibonacci = new Fibonacci($n);
+        $serie = $fibonacci->convertir();
         $resultado = implode(" - ", $serie);
+
     } elseif ($operacion == "factorial") {
-        $serie = $operacionNumero->factorial();
+
+        $factorial = new Factorial($n);
+        $serie = $factorial->convertir();
         $resultado = implode(" - ", $serie);
     }
 }

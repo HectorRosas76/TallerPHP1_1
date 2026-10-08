@@ -12,15 +12,60 @@ class Arbol
         ];
     }
 
-    public function mostrarArbol($nodo, $nivel = 0)
+    public function mostrarArbol($nodo)
     {
         if ($nodo == null) {
             return;
         }
-        echo str_repeat("&nbsp;&nbsp;&nbsp;&nbsp;", $nivel);
-        echo $nodo["valor"] . "<br>";
-        $this->mostrarArbol($nodo["izq"], $nivel + 1);
-        $this->mostrarArbol($nodo["der"], $nivel + 1);
+
+        echo '<div class="arbol-visual">';
+        $this->mostrarNivel([$nodo]);
+        echo '</div>';
+    }
+
+    private function mostrarNivel($nodos)
+    {
+        $hayNodos = false;
+
+        foreach ($nodos as $nodo) {
+            if ($nodo != null) {
+                $hayNodos = true;
+                break;
+            }
+        }
+
+        if (!$hayNodos) {
+            return;
+        }
+
+        echo '<div class="nivel">';
+
+        foreach ($nodos as $nodo) {
+            if ($nodo != null) {
+                echo '<div class="nodo">';
+                echo $nodo["valor"];
+                echo '</div>';
+            } else {
+                echo '<div class="nodo vacio"></div>';
+            }
+        }
+
+        echo '</div>';
+
+        $siguienteNivel = [];
+
+        foreach ($nodos as $nodo) {
+
+            if ($nodo != null) {
+                $siguienteNivel[] = $nodo["izq"];
+                $siguienteNivel[] = $nodo["der"];
+            } else {
+                $siguienteNivel[] = null;
+                $siguienteNivel[] = null;
+            }
+        }
+
+        $this->mostrarNivel($siguienteNivel);
     }
 }
 // HIJA 1: PREORDEN + INORDEN
@@ -125,53 +170,35 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <html lang="es">
 
 <head>
-
     <meta charset="UTF-8">
-
     <meta name="viewport"
         content="width=device-width, initial-scale=1.0">
-
     <title>Árbol Binario</title>
-
     <link rel="stylesheet"
         href="../CSS/General.css">
-
     <link rel="icon"
         href="../Recursos/logo.png"
         type="image/x-icon">
-
+    <link rel="stylesheet" href="../CSS/Arbol.css">
 </head>
 
-
 <body>
-
     <main class="contenedor">
-
         <nav class="menu">
-
             <h1>Árbol generado</h1>
-
             <?php
-
             echo "<h3>$mensaje</h3>";
-
             if ($arbol != null) {
 
                 $obj->mostrarArbol($arbol);
             }
-
             ?>
-
             <br>
-
             <a href="../HTML/Arbol.html">
                 VOLVER
             </a>
-
         </nav>
-
     </main>
-
 </body>
 
 </html>

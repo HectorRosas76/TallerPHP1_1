@@ -118,33 +118,21 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["operacion"])) {
 ?>
 
 <head>
-
     <meta charset="UTF-8">
-
     <meta name="viewport"
         content="width=device-width, initial-scale=1.0">
-
     <title>Calculadora</title>
-
     <link rel="stylesheet"
         href="../CSS/General.css">
-
     <link rel="icon"
         href="../Recursos/logo.png"
         type="image/x-icon">
 
 </head>
-
-
 <body>
-
     <main class="contenedor">
-
         <nav class="menu">
-
             <h1>CALCULADORA</h1>
-
-
             <?php
 
             // Mostrar resultado
@@ -154,44 +142,27 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["operacion"])) {
 
                 echo "<p>$resultado</p>";
             }
-
             ?>
-
-
-            <!-- HISTORIAL -->
-
             <h2>Historial</h2>
-
             <?php
-
             if (count($_SESSION["historial"]) > 0) {
-
                 echo "<ul>";
-
                 foreach ($_SESSION["historial"] as $operacion) {
 
                     echo "<li>$operacion</li>";
                 }
-
                 echo "</ul>";
             } else {
 
                 echo "<p>No hay operaciones en el historial.</p>";
             }
-
             ?>
 
-
             <br>
-
             <a href="../HTML/Calculadora.html">
                 VOLVER
             </a>
-
         </nav>
-
     </main>
-
 </body>
-
 </html>
