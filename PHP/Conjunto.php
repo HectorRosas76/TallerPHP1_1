@@ -64,6 +64,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $union = $obj->union();
     $inter = $obj->interseccion();
     $diferencia = $obj->diferencia();
+    $diferenciaB = $obj->diferenciaBA();
     $resultado = "
         <p><strong>Unión:</strong> 
         { " . implode(", ", $union) . " }</p><br>
@@ -71,6 +72,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         { " . implode(", ", $inter) . " }</p><br>
         <p><strong>Diferencia A - B:</strong> 
         { " . implode(", ", $diferencia) . " }</p><br>
+                 <p><strong>Diferencia B - A:</strong> 
+        { " . implode(", ", $diferenciaB) . " }</p><br>
     ";
 }
 ?>

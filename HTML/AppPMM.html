@@ -1,12 +1,27 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>PMM</title>
-    <link rel="icon" href="../Recursos/logo.png" type="image/x-icon">
-</head>
-<body>
-    
-</body>
+    <link rel="icon" href="../Recursos/logo.png" type="image/x-icon" />
+    <link rel="stylesheet" href="../CSS/General.css" />
+  </head>
+  <body>
+    <main class="contenedor">
+      <nav class="menu">
+        <h1>Promedio - Moda - Mediana</h1>
+        <form action="../PHP/PMM.php" method="post">
+          <input
+            type="text"
+            name="datos"
+            placeholder="Ingrese una lista de números separados por comas: 1, 2/5 , 3, 4.3 , 5"
+            required
+          />
+          <button type="submit">CALCULAR</button>
+        </form>
+        <a href="index.html">VOLVER</a>
+      </nav>
+    </main>
+  </body>
 </html>

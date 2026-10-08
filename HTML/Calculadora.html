@@ -1,12 +1,48 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Calculadora</title>
-    <link rel="icon" href="../Recursos/logo.png" type="image/x-icon">
-</head>
-<body>
-    
-</body>
+    <link rel="icon" href="../Recursos/logo.png" type="image/x-icon" />
+    <link rel="stylesheet" href="../CSS/General.css" />
+  </head>
+  <body>
+    <main class="contenedor">
+      <nav class="menu">
+        <h1>CALCULADORA</h1>
+        <form action="../PHP/Calculadora.php" method="post">
+          <input
+            type="number"
+            step="any"
+            name="num1"
+            placeholder="Ingrese el primer número"
+            required
+          />
+          <input
+            type="number"
+            step="any"
+            name="num2"
+            placeholder="Ingrese el segundo número"
+            required
+          />
+          <select name="operacion" required>
+            <option value="">Seleccione una operación</option>
+            <option value="Suma">Suma</option>
+            <option value="Resta">Resta</option>
+            <option value="Multiplicacion">Multiplicación</option>
+            <option value="Division">División</option>
+          </select>
+          <button type="submit">CALCULAR</button>
+        </form>
+        <form action="../PHP/Calculadora.php" method="post">
+          <button type="submit" name="borrar_historial">
+            BORRAR HISTORIAL
+          </button>
+        </form>
+
+        <a href="index.html">VOLVER</a>
+      </nav>
+    </main>
+  </body>
 </html>
