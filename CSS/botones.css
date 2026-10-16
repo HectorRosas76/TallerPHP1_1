@@ -1,0 +1,73 @@
+/* Boton */
+
+.menu button {
+    width: 100%;
+
+    padding: 15px;
+
+    box-sizing: border-box;
+
+    background-color: rgb(190, 135, 65);
+
+    border: 2px solid darkred;
+
+    border-radius: 10px;
+
+    color: darkred;
+
+    font-size: 18px;
+
+    cursor: pointer;
+
+    transition:
+        background-color 0.3s,
+        color 0.3s,
+        transform 0.3s;
+}
+
+
+/* Link */
+
+.menu a {
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    min-height: 70px;
+
+    padding: 15px;
+
+    box-sizing: border-box;
+
+    background-color: rgb(190, 135, 65);
+
+    border: 2px solid darkred;
+
+    border-radius: 10px;
+
+    color: darkred;
+
+    text-decoration: none;
+
+    font-size: 18px;
+
+    text-align: center;
+
+    transition:
+        background-color 0.3s,
+        color 0.3s,
+        transform 0.3s;
+}
+
+
+/* Hover */
+
+.menu a:hover,
+.menu button:hover {
+    background-color: darkred;
+
+    color: white;
+
+    transform: scale(1.02);
+}

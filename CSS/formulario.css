@@ -1,0 +1,67 @@
+/* Formulario */
+
+form {
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    gap: 15px;
+
+    padding: 15px;
+}
+
+
+/* Input */
+
+.menu input {
+    width: 100%;
+
+    padding: 15px;
+
+    box-sizing: border-box;
+
+    background-color: rgb(190, 135, 65);
+
+    border: 2px solid darkred;
+
+    border-radius: 10px;
+
+    color: darkred;
+
+    font-size: 18px;
+
+    text-align: center;
+}
+
+
+/* Select */
+
+.menu select {
+    width: 100%;
+
+    padding: 15px;
+
+    box-sizing: border-box;
+
+    background-color: rgb(190, 135, 65);
+
+    border: 2px solid darkred;
+
+    border-radius: 10px;
+
+    color: darkred;
+
+    font-size: 18px;
+
+    text-align: center;
+}
+
+
+/* Color del placeholder */
+
+.menu input::placeholder {
+    color: rgb(80, 2, 2);
+    opacity: 1;
+}

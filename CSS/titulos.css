@@ -1,0 +1,15 @@
+/* Titulos */
+
+h1 {
+    text-align: center;
+
+    color: darkred;
+
+    margin-bottom: 40px;
+}
+
+h2 {
+    text-align: left;
+    color: rgb(80, 2, 2);
+    margin-bottom: 20px;
+}

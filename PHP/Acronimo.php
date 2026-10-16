@@ -44,7 +44,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Generar Acronimo</title>
-    <link rel="stylesheet" href="../CSS/General.css">
+    <link rel="stylesheet" href="../CSS/general.css" />
+    <link rel="stylesheet" href="../CSS/botones.css" />
+    <link rel="stylesheet" href="../CSS/contenedor.css" />
+    <link rel="stylesheet" href="../CSS/formulario.css" />
+    <link rel="stylesheet" href="../CSS/menu.css" />
+    <link rel="stylesheet" href="../CSS/titulos.css" />
     <link rel="icon" href="../Recursos/logo.png" type="image/x-icon">
 </head>
 
