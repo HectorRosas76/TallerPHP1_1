@@ -71,3 +71,28 @@
 
     transform: scale(1.02);
 }
+
+/* Resultado */
+.menu .resultado {
+    padding: 25px 15px;
+
+    box-sizing: border-box;
+
+    background-color: rgb(80, 2, 2);
+
+    border: 3px double rgb(245, 221, 181);
+
+    border-radius: 10px;
+
+    color: rgb(245, 221, 181);
+
+    font-size: 36px;
+    font-weight: bold;
+    letter-spacing: 8px;
+
+    text-align: center;
+
+    word-break: break-word;
+
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}

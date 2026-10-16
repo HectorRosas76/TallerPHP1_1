@@ -122,7 +122,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["operacion"])) {
     <meta name="viewport"
         content="width=device-width, initial-scale=1.0">
     <title>Calculadora</title>
-    <link rel="stylesheet" href="../CSS/general.css" />
+  <link rel="stylesheet" href="../CSS/general.css" />
     <link rel="stylesheet" href="../CSS/botones.css" />
     <link rel="stylesheet" href="../CSS/contenedor.css" />
     <link rel="stylesheet" href="../CSS/formulario.css" />
@@ -138,31 +138,20 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["operacion"])) {
     <main class="contenedor">
         <nav class="menu">
             <h1>CALCULADORA</h1>
-            <?php
-
-            // Mostrar resultado
-            if ($resultado != "") {
-
-                echo "<h2>Resultado:</h2>";
-
-                echo "<p>$resultado</p>";
-            }
-            ?>
+ <?php if ($resultado != ""): ?>
+    <h2>Resultado:</h2>
+    <div class="resultado"><?= $resultado ?></div>
+<?php endif; ?>
             <h2>Historial</h2>
-            <?php
-            if (count($_SESSION["historial"]) > 0) {
-                echo "<ul>";
-                foreach ($_SESSION["historial"] as $operacion) {
-
-                    echo "<li>$operacion</li>";
-                }
-                echo "</ul>";
-            } else {
-
-                echo "<p>No hay operaciones en el historial.</p>";
-            }
-            ?>
-
+<?php
+if (count($_SESSION["historial"]) > 0) {
+    foreach ($_SESSION["historial"] as $operacion) {
+        echo "<div class='resultado pequeno'>$operacion</div>";
+    }
+} else {
+    echo "<div class='resultado pequeno'>No hay operaciones en el historial.</div>";
+}
+?>
             <br>
             <a href="../HTML/Calculadora.html">
                 VOLVER

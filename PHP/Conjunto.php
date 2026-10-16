@@ -97,12 +97,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <main class="contenedor">
         <nav class="menu">
             <h1> CONJUNTOS </h1>
-            <?php
-            if ($resultado != "") {
-                echo "<h2>Resultado:</h2>";
-                echo $resultado;
-            }
-            ?>
+      <?php if ($resultado != ""): ?>
+    <h2>Resultado:</h2>
+    <div class="resultado"><?= $resultado ?></div>
+<?php endif; ?>
             <a href="../HTML/Conjunto.html">VOLVER</a>
         </nav>
     </main>
