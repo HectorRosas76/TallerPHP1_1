@@ -57,10 +57,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <main class="contenedor">
         <nav class="menu">
             <h1> Acronimo </h1>
-       <?php if ($resultado != ""): ?>
-    <h2>Resultado:</h2>
-    <div class="resultado"><?= $resultado ?></div>
-<?php endif; ?>
+            <?php if ($resultado != ""): ?>
+                <h2>Resultado:</h2>
+                <div class="resultado"><?= $resultado ?></div>
+            <?php endif; ?>
             <a href="../HTML/Acronimo.html">VOLVER</a>
         </nav>
     </main>
