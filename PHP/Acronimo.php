@@ -1,39 +1,58 @@
 <?php
-class Acronimo
+abstract class Transformador
 {
-    private string $texto;
+    protected string $texto;
 
     public function __construct(string $texto)
     {
         $this->texto = $texto;
     }
 
+    // Abstracción: cada hija define cómo transforma
+    abstract public function transformar(): string;
+}
+
+class Acronimo extends Transformador
+{
     public function transformar(): string
     {
         $texto = strtolower($this->texto);
         $resultado = "";
 
         for ($i = 0; $i < strlen($texto); $i++) {
-
             $char = $texto[$i];
-
             if (ctype_alpha($char)) {
-
                 if ($i == 0 || $texto[$i - 1] == " " || $texto[$i - 1] == "-") {
-
                     $resultado .= strtoupper($char);
                 }
             }
         }
-
         return $resultado;
     }
 }
 
+class Original extends Transformador
+{
+    public function transformar(): string
+    {
+        return ucwords(strtolower($this->texto));
+    }
+}
+
+$resultado = "";
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $texto = $_POST["texto"];
-    $obj = new Acronimo($texto);
-    $resultado = $obj->transformar();
+
+    // Polimorfismo: mismo método, distinto comportamiento
+    $transformadores = [
+        "Acrónimo" => new Acronimo($texto),
+        "Original" => new Original($texto),
+    ];
+
+    foreach ($transformadores as $nombre => $t) {
+        $resultado .= "<strong>$nombre:</strong> " . $t->transformar() . "<br>";
+    }
 }
 ?>
 

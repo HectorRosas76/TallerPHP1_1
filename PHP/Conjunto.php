@@ -1,80 +1,72 @@
 <?php
-class Conjuntos
+abstract class OperacionConjunto
 {
-    private array $A;
-    private array $B;
+    protected array $A;
+    protected array $B;
+
     public function __construct(array $A, array $B)
     {
         $this->A = $A;
         $this->B = $B;
     }
-    public function union()
-    {
-        $res = $this->A;
-        foreach ($this->B as $b) {
-            if (!in_array($b, $res)) {
-                $res[] = $b;
-            }
-        }
-        return $res;
-    }
-    public function interseccion()
-    {
-        $res = [];
-        foreach ($this->A as $a) {
-            if (in_array($a, $this->B)) {
-                $res[] = $a;
-            }
-        }
-        return $res;
-    }
 
-    public function diferencia()
-    {
-        $res = [];
-        foreach ($this->A as $a) {
-            if (!in_array($a, $this->B)) {
-                $res[] = $a;
-            }
-        }
-        return $res;
-    }
-    public function diferenciaBA()
-    {
-        $res = [];
+    abstract public function calcular(): array;
+    abstract public function nombre(): string;
+}
 
-        foreach ($this->B as $b) {
-            if (!in_array($b, $this->A)) {
-                $res[] = $b;
-            }
-        }
-
-        return $res;
+class Union extends OperacionConjunto
+{
+    public function calcular(): array
+    {
+        return array_values(array_unique(array_merge($this->A, $this->B)));
     }
+    public function nombre(): string { return "Unión"; }
+}
+
+class Interseccion extends OperacionConjunto
+{
+    public function calcular(): array
+    {
+        return array_values(array_intersect($this->A, $this->B));
+    }
+    public function nombre(): string { return "Intersección"; }
+}
+
+class DiferenciaAB extends OperacionConjunto
+{
+    public function calcular(): array
+    {
+        return array_values(array_diff($this->A, $this->B));
+    }
+    public function nombre(): string { return "Diferencia A - B"; }
+}
+
+class DiferenciaBA extends OperacionConjunto
+{
+    public function calcular(): array
+    {
+        return array_values(array_diff($this->B, $this->A));
+    }
+    public function nombre(): string { return "Diferencia B - A"; }
 }
 
 $resultado = "";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $A = explode(",", $_POST["numAA"]);
-    $B = explode(",", $_POST["numBB"]);
-    $A = array_map('trim', $A);
-    $B = array_map('trim', $B);
-    $obj = new Conjuntos($A, $B);
-    $union = $obj->union();
-    $inter = $obj->interseccion();
-    $diferencia = $obj->diferencia();
-    $diferenciaB = $obj->diferenciaBA();
-    $resultado = "
-        <p><strong>Unión:</strong> 
-        { " . implode(", ", $union) . " }</p><br>
-        <p><strong>Intersección:</strong> 
-        { " . implode(", ", $inter) . " }</p><br>
-        <p><strong>Diferencia A - B:</strong> 
-        { " . implode(", ", $diferencia) . " }</p><br>
-                 <p><strong>Diferencia B - A:</strong> 
-        { " . implode(", ", $diferenciaB) . " }</p><br>
-    ";
+    $A = array_map('trim', explode(",", $_POST["numAA"]));
+    $B = array_map('trim', explode(",", $_POST["numBB"]));
+
+    $operaciones = [
+        new Union($A, $B),
+        new Interseccion($A, $B),
+        new DiferenciaAB($A, $B),
+        new DiferenciaBA($A, $B),
+    ];
+
+    foreach ($operaciones as $op) {
+        $resultado .= "<p><strong>" . $op->nombre() . ":</strong> { "
+            . implode(", ", $op->calcular()) . " }</p><br>";
+    }
 }
 ?>
 
